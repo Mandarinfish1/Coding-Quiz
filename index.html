@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coding Quiz</title>
+  <link rel="stylesheet" href="style.css"/>
+ </head>
+
+ <body>
+ <header>
+  <!--note: anchor tag not working below-->
+
+<div>
+  <a id = "highScoresLink"> Top Scores</a>
+  <!--<div class="points"><a href="highscores.html">Top Scores</a></div>-->
+</div>
+
+  <div class="timeClock">Time: <span id="timeClock">0</span></div>
+ </header>
+
+ <main>
+  <div class="container">
+   <div id="openingpage" class="start">
+    <h1>Coding Quiz</h1>
+    <p>Test your coding IQ! Answer the following questions within the timed limit. Incorrect answers will drop your time by 15 seconds!</p>
+    <button id="start">Let's Start the Quiz!</button>
+   </div>
+
+  <div hidden id="quiz"> <!--class="hide">-->
+   <h2 id="quiz-item"></h2>
+    <div id="options" class="options">  
+    </div>
+  </div> 
+  
+
+  <div hidden id = "closingpage"> <!--class="hide">-->
+   <h2>Finished!</h2>
+    <p>Your final score is <span id="finalPoints"></span></p>
+    <p>Please enter your initials: <input type="text" id="initials" maxlength="4"/>
+     <button id="submit">Submit</button>
+    </p>
+  </div>
+
+  
+  <div hidden class ="highPoints">
+    <h1>Highscores</h1>
+    <ol id = "highPoints"></ol>
+    <!--<button onclick = "window.location.href = '#points';">Go Back</button></a>-->
+
+    <button id="clear">Clear Highscores</button>
+  </div>
+  
+ </div>
+</main>
+<footer>
+ <div id="response"></div> <!--class="response hide">-->
+ </div>
+</footer>
+ <script src="questions.js"></script>
+ <script src="logic.js"></script>
+
+ <script src="scores.js"></script>
+</body>
+</html>
