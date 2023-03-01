@@ -56,7 +56,7 @@
 
 # Deployed Repository Link
 
--
+- https://mandarinfish1.github.io/Coding-Quiz/
 
 # Coding Quiz Repostory Link
 
