@@ -250,9 +250,5 @@ function showHighPoints() {
   document.getElementById('clear').onclick = clearHighPoints;
 }
 
-  const highPointsLink = document.querySelector('#highPoints-Link');
-  highPointsLink.addEventListener('click', showHighPoints);
-
-
   //run function when page loads
 showHighPoints();
