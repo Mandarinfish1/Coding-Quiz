@@ -43,7 +43,7 @@
 
 ## Credits
 
-- N/A
+- n/a
 
 ## Reference
 
@@ -58,7 +58,7 @@
 
 -
 
-# Time Coding Quiz Repostory Link
+# Coding Quiz Repostory Link
 
 - https://github.com/Mandarinfish1/Coding-Quiz
 

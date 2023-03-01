@@ -11,17 +11,17 @@
  <body>
  <header>
   
-<div>         <!--note: anchor tag not working below-->
-  <!--<div class = "points"><a href ="highPoints">Top Scores</a></div>-->
+  <div>         <!--note: anchor tag not working below-->
+                  <!--<div class = "points"><a href ="highPoints">Top Scores</a></div>-->
   
-  <a id="highPoints">Top Scores</a>
+    <a id="highPoints">Top Scores</a>
 
-</div>
+  </div>
 
 
-<div>
-<div class="timeClock">Time: <span id="timeClock">0</span></div>
-</div>
+  <div>
+  <div class="timeClock">Time: <span id="timeClock">0</span></div>
+  </div>
 
  </header>
 
@@ -48,24 +48,17 @@
     </p>
   </div>
 
-<div hidden id="highPoints">
+  <div hidden id="highPoints">   <!--Note: highPoints is not appearing after closingpage-->
   <h1>Highscores</h1>
   <ol id="highPoints"></ol>
   <button onclick = "window.location.href = '#points';">Go Back</button></a>
   <button id="clear">Clear Highscores</button>
-</div>
+  </div>
   
-
-  <script>
-    const highPointsLink = document.getElementById("highPointsLink");
-    highPointsLink.addEventListener("click", highPoints);
-  </script>
-
  </div>
 </main>
 <footer>
- <div id="response"></div> <!--class="response hide">-->
- </div>
+ <div id="response"></div> 
 </footer>
  <script src="questions.js"></script>
  <script src="logic.js"></script>
