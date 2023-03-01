@@ -10,14 +10,19 @@
 
  <body>
  <header>
-  <!--note: anchor tag not working below-->
+  
+<div>         <!--note: anchor tag not working below-->
+  <!--<div class = "points"><a href ="highPoints">Top Scores</a></div>-->
+  
+  <a id="highPoints">Top Scores</a>
 
-<div>
-  <a id = "highScoresLink"> Top Scores</a>
-  <!--<div class="points"><a href="highscores.html">Top Scores</a></div>-->
 </div>
 
-  <div class="timeClock">Time: <span id="timeClock">0</span></div>
+
+<div>
+<div class="timeClock">Time: <span id="timeClock">0</span></div>
+</div>
+
  </header>
 
  <main>
@@ -28,14 +33,14 @@
     <button id="start">Let's Start the Quiz!</button>
    </div>
 
-  <div hidden id="quiz"> <!--class="hide">-->
+  <div hidden id="quiz"> 
    <h2 id="quiz-item"></h2>
     <div id="options" class="options">  
     </div>
   </div> 
   
 
-  <div hidden id = "closingpage"> <!--class="hide">-->
+  <div hidden id = "closingpage">
    <h2>Finished!</h2>
     <p>Your final score is <span id="finalPoints"></span></p>
     <p>Please enter your initials: <input type="text" id="initials" maxlength="4"/>
@@ -43,15 +48,19 @@
     </p>
   </div>
 
+<div hidden id="highPoints">
+  <h1>Highscores</h1>
+  <ol id="highPoints"></ol>
+  <button onclick = "window.location.href = '#points';">Go Back</button></a>
+  <button id="clear">Clear Highscores</button>
+</div>
   
-  <div hidden class ="highPoints">
-    <h1>Highscores</h1>
-    <ol id = "highPoints"></ol>
-    <!--<button onclick = "window.location.href = '#points';">Go Back</button></a>-->
 
-    <button id="clear">Clear Highscores</button>
-  </div>
-  
+  <script>
+    const highPointsLink = document.getElementById("highPointsLink");
+    highPointsLink.addEventListener("click", highPoints);
+  </script>
+
  </div>
 </main>
 <footer>
@@ -60,7 +69,5 @@
 </footer>
  <script src="questions.js"></script>
  <script src="logic.js"></script>
-
- <script src="scores.js"></script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 
 //variables for Javascript
-//Using document.querySelector('#'). Can use document.getElementById(''). Using getElementById will only get an element by a specific Id. Using document.querySelector lets you select elements by Id, attribute or class, etc. making it more versatile.
+//Using document.querySelector('#'). Can use document.getElementById(''). Using getElementById will get an element by a specific Id. Using document.querySelector lets you select elements by Id, attribute or class, etc. making it more versatile.
 
 var quizKey = document.querySelector('#quiz');
 var timeKey = document.querySelector('#timeClock');
@@ -9,20 +9,17 @@ var submitBtn = document.querySelector('#submit');
 var startBtn  = document.querySelector('#start');
 var initialsKey  = document.querySelector('#initials');
 var responseKey = document.querySelector('#response');
-//this was under startQuiz
+
 var openingPgKey  = document.querySelector('#openingpage');
 var closingPgKey = document.querySelector('#closingpage');
 
 let quizIndex = 0;
-let timeClock =  60; //quiz.length * 15;
+let timeClock =  60; 
 let timerId;
-
-//experiement
-//var answerButtons = document.querySelector('#options');
 
 function startQuiz() { 
 
-  //Using .hidden to hide page. Can use Element.setAttribute(). Note: .hidden = true; will hide an element. Element.setAttribute() will change an attribute of an element. Element.setAttribute() is a method. .hidden is an attribute to an element. Both seem to work.
+  //Using .hidden to hide page. Can use Element.setAttribute(). Note: .hidden = true; will hide an element. Element.setAttribute() will "change" an attribute of an element. 
   
   openingPgKey.hidden = true;
   closingPgKey.hidden = true; 
@@ -63,7 +60,7 @@ function runQuestions()  {
     var d = document;
     var optionNode = d.createElement('button');
 
-      //using Element.value   Can use Element.setAttribute() Note: Both may not always be safe from (XSS) attacks on user input. Input validation may be needed? 
+      //using Element.value   Can use Element.setAttribute() Note: Both may not always be safe from (XSS) attacks on user input. Input validation may be needed..
     
     optionNode.className = 'option';
 
@@ -93,7 +90,7 @@ function questionClick(event)  {
     if  (timeClock < 0) {
     timeClock = 0;
   }
-  timeKey['textContent'] = timeClock;//added this 
+  timeKey['textContent'] = timeClock;
 
   responseKey['textContent']  = 'Incorrect!';
   
@@ -111,9 +108,11 @@ function questionClick(event)  {
   }, 1000);
 
   //next question
+
   quizIndex++;
 
-  //checking if there are no userQuestions. Using else if statement. Can use || OR operator, or ?? nullish coalescing. They both behaved the same here but they also can behave differently in other cases... 
+  //checking if there are no more userQuestions. Using else if statement. Can use || OR operator, or ?? nullish coalescing. They both behaved the same here but they also can behave differently in other cases... 
+
   if (timeClock  <=  0) {
   } else if (quizIndex === quiz.length)  {
     quizEnd();
@@ -139,7 +138,7 @@ function  quizEnd() {
   
 function runTime()  {
 
-  //Subtracting 1 from the timeClock. Also using = 1. Can use a postfixed operator called a decrement operator timeClock--; which subtracts 1 from it's operand. 
+  //Subtracting 1 from the timeClock. Also using - 1. Can use a postfixed operator called a decrement operator timeClock--; which subtracts 1 from it's operand. 
   
   timeClock = timeClock -= 1;
 
@@ -147,17 +146,19 @@ function runTime()  {
   
   timeKey['textContent'] = timeClock;
   
-  //ckeck if user ran out of time
-  //if (timeClock <=  0)  {
-    if (timeClock < 0 || timeClock == 0) { clearInterval(timerId) //leave this here! timer goes into negative numbers and will not stop.
+  //check if user ran out of time
+  
+    if (timeClock < 0 || timeClock == 0) { clearInterval(timerId) //leave this clearInterval here! timer goes into negative numbers and will not stop.
     quizEnd();
+
+    
   }
 }
 
     
   function  saveHighPoints()  {
 
-    //get value of input box. Using the .trim() removes white spaces, tabs, etc. from beginning of string and end of string. It does not change the original string or accept arguments. Can use .trimStart() and .trimEnd() or .trimLeft() and .trimRight() may also be used.
+    //get value of input box. Using .trimLeft() and .trimRight(). Can use .trimStart() and .trimEnd(). Trim removes white spaces, tabs, etc. from beginning of string and end of string. It does not change the original string or accept arguments. Can use trim() shortcut.
 
   var initials  = initialsKey.value.trimLeft().trimRight();
 
@@ -176,41 +177,38 @@ function runTime()  {
         };
 
         //save to localstoreage
-        //using .splice() operator to add highPoints into newPoints. Note: .splice() is used to add, remove, replace elements from an array into certain locations in an array. It seems to be working. Can use highPoints.push(newPoints); removed original and it still works? why?
+        //using .splice() operator to add highPoints into newPoints. Note: .splice() is used to add, remove, replace elements from an array into certain locations in an array. Can use highPoints.push(newPoints); 
+
         highPoints.splice(newPoints);
         window.localStorage.setItem('highPoints', JSON.stringify(highPoints));
 
         //redirects to the next page
+
         window.location.href  = 'index.html';
     }
   }
 
   function  check(event)  {
 
-    //"13" represents the enter 
-    
     if (event.key === 'Enter')  {
       saveHighPoints();
     }
     
   }
-      //not sure if .onmousedown works.
+      
   //user submit initials upon clicking button
-  //submitBtn.onclick = saveHighPoints;
+  
   submitBtn.onmousedown = saveHighPoints;
 
   //to start quiz click button
-  //startBtn.onclick  = startQuiz;
+  
   startBtn.onmousedown = startQuiz;
 
   //clicking on element containing choices
-  //optionsKey.onclick  = questionClick;  
+   
   optionsKey.onmousedown = questionClick;
 
   initialsKey.onkeyup = check;
-
-
-///////////////////below was on scores.js page
 
 
 
@@ -218,23 +216,16 @@ function showHighPoints() {
  //retreiving scores form localStorage || set to empty array
  var highPoints = JSON.parse(window.localStorage.getItem('highPoints'))  ||  [];
 
-//my code below:
-//var storehighPoints = window.localStorage.getItem('highPoints');
-//if (storehighPoints !== null)  {
-  //highPoints = JSON.parse(storedPoints);
-//}else{
-  //highPoints = [];
-//}
- //sorting highPoints using .sort by points property in descending order from highest score to lowest score using b - a
+ //sorting highPoints using .sort by point property in descending order from highest score to lowest score using b - a
  highPoints.sort(function (a , b) {
-   return b.score - a.score;//  >
+   return b.score - a.score;
  });
 
  for (var i = 0; i < highPoints.length; i += 1) {
   //create li tag for each high score
   var scoreItem = document.createElement('li');
-  scoreItem['textContent'] = `${highPoints[i].initials}-${highPoints[i].score}`;
-  //highPoints[i].initials + '-' + highPoints[i].score;
+  scoreItem['textContent'] = `${highPoints[i].initials}-${highPoints[i].score}`; //template literal
+  
 
   //display on page
   var olEl = document.getElementById['highPoints'];

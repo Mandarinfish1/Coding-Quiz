@@ -24,8 +24,7 @@ p {
 }
 
 header {
- background-color: /*#0b58a7;*/ #b89789;
- /*color: #fff;*/
+ background-color:  #b89789;
  color: white;
  display: flex;
  justify-content:space-around;
@@ -52,7 +51,7 @@ main {
 }
 
 button {
- background-color:/*#e7e7e7;*/#757081;
+ background-color:#757081;
  border-radius: 12px;
  padding: 7px;
  color: white;
@@ -60,11 +59,7 @@ button {
 }
 
 button:hover {
- /*background-color: #757081;*/
- /*background-color: /*#008080;*/
  background-color: #D4AF37;
- /*color: #e4e3e6;*/
- /*color: whitesmoke;*/
  color:white;
 }
 

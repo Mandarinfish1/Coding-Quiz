@@ -1,5 +1,5 @@
 var quiz = [{
-  title: 'Inside which HTML do we put the           Javascript?',
+  title: 'Inside which HTML do we put the Javascript?',
   options: ['<scripting>', '<js>', '<javascript>', '<script>'],
   answer: 2 
 },
